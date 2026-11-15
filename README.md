@@ -4,6 +4,8 @@ A focused text workspace: **summarize**, **rewrite**, and **extract tasks**. Rea
 
 The writing-room interface pairs locally bundled Instrument Sans and Instrument Serif with a centered document spread. Focus view expands the editing area; clipboard paste and plain-text download are built in. On phones, switch between Original and Result. Task source quotes can be located and highlighted in the original. See [DESIGN.md](DESIGN.md) for design decisions and review evidence.
 
+Project documentation: [Product requirements (PRD)](PRD.md) · [High-level design (HLD)](HLD.md) · [Low-level design (LLD)](LLD.md) · [Course concepts](CONCEPTS.md).
+
 ## Run locally
 
 Install **Node.js 22.12+** (Node 24 LTS recommended). Open a terminal in this folder:
@@ -120,6 +122,6 @@ server/prompts/  Per-tool instructions
 tests/           API, provider transport, and browser integration checks
 ```
 
-No text is persisted by Promptly. In real mode, source text is sent to the selected provider (Google for Gemini, or OpenAI); provider retention policies still apply. Canceling discards the browser request and prevents stale output; it does not guarantee that an upstream generation or its billing stops.
+The Promptly server does not persist source or result text. Past tasks are saved locally in the browser as described above. In real mode, source text is sent to the selected provider (Google for Gemini, or OpenAI); provider retention policies still apply. Canceling discards the browser request and prevents stale output; it does not guarantee that an upstream generation or its billing stops.
 
 If a port is occupied, stop the earlier app process. If the browser cannot reach the API, confirm both dev processes are running and use the exact URL above. A provider limit error can indicate API billing or quota, not only request frequency.
